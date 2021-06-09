@@ -7,12 +7,7 @@ import com.aurora.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Collections;
-import java.util.List;
 
 /**
  * @author zbsilent
@@ -23,9 +18,6 @@ import java.util.List;
 public class PaymentController {
 
   @Autowired private PaymentService paymentService;
-
-  @Autowired
-  DiscoveryClient discoveryClient;
 
   @Value("${server.port}")
   private String serverPort;
@@ -59,13 +51,5 @@ public class PaymentController {
     }
     throw new Exception("没有查询到数据");
     //return new CommonResult<>(404, "error", new Exception("null").getMessage());
-  }
-  @GetMapping("/payment/discovery")
-  public Object discovery(){
-    List<String> services = discoveryClient.getServices();
-    services.forEach((service)->log.debug(service));
-    List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
-    instances.forEach((instance)->log.debug(instance.getServiceId()+"\t"+instance.getHost()+"\t"+instance.getPort()+"\t"+instance.getUri()));
-    return this.discoveryClient;
   }
 }

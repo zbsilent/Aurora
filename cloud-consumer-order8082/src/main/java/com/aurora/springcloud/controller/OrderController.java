@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class OrderController {
 
-  public static final String PATH_URL = "http://127.0.0.1:8081";
+  public static final String PATH_URL = "http://CLOUD-PAYMENT-SERVICE";
 
   @Autowired private RestTemplate restTemplate;
 

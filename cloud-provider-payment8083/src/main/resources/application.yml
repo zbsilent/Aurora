@@ -37,19 +37,18 @@
         allow: ""
       max-pool-prepared-statement-per-connection-size: 20
       use-global-data-source-stat: true
-      url: jdbc:mysql://${server.address}:3306/spring_cloud?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+      url: jdbc:mysql://localhost:3306/spring_cloud?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
       username: root
       password: 123456
       driver-class-name: com.mysql.cj.jdbc.Driver
     initialization-mode: always
-  devtools:
-    restart:
-      enabled: true
-    livereload:
-      enabled: true
+#  devtools:
+#    restart:
+#      enabled: true
+#    livereload:
+#      enabled: true
 server:
-  port: 8081
-  address: 127.0.0.1
+  port: 8083
 logging:
   file:
     name: ${spring.application.name}.log
@@ -63,8 +62,15 @@ mybatis:
     log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
   type-aliases-package: com.aurora.springcloud.entities
 eureka:
-  instance:
-    prefer-ip-address: true #使用服务的IP地址注册
+#  instance:
+#    prefer-ip-address: true #使用服务的IP地址注册
   client:
     service-url:
-      defaultZone: http://localhost:7001/eureka/
+      #      defaultZone: http://eureka7001.com:7001/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/ #集群版
+    register-with-eureka: true
+    fetch-registry: true #单节点无所谓 集群必须配置rebbon使用负载均衡
+  instance:
+    instance-id: payment8083
+    prefer-ip-address: true
+
