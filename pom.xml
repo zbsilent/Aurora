@@ -13,6 +13,7 @@
         <module>cloud-provider-payment8081</module>
         <module>cloud-consumer-order8082</module>
         <module>cloud-api-aurora</module>
+        <module>cloud-eureka-register7001</module>
     </modules>
 
 

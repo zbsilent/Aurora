@@ -1,0 +1,13 @@
+#spring:
+#  application:
+#    name: colud-eureka-register
+server:
+  port: 7001
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false # 不向自己注册
+    fetch-registry: false # 维护服务实例，不需要检索服务
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
