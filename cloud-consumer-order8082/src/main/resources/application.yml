@@ -4,5 +4,13 @@ spring:
   devtools:
     restart:
       enabled: true
+    livereload:
+      enabled: true
 server:
   port: 8082
+eureka:
+  instance:
+    prefer-ip-address: true #使用服务的IP地址注册
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/

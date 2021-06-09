@@ -62,3 +62,9 @@ mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
   type-aliases-package: com.aurora.springcloud.entities
+eureka:
+  instance:
+    prefer-ip-address: true #使用服务的IP地址注册
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/

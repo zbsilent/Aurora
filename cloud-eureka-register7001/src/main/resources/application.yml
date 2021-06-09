@@ -11,3 +11,9 @@ eureka:
     fetch-registry: false # 维护服务实例，不需要检索服务
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true

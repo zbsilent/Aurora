@@ -2,6 +2,7 @@ package com.aurora.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
@@ -10,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
  * @date 2021年06月09日 5:07 上午
  */
 @SpringBootApplication
+@EnableEurekaClient
 public class OrderApplication {
   public static void main(String[] args) {
     //
