@@ -1,0 +1,8 @@
+.idea
+# Project exclude paths
+/cloud-api-aurora/target/
+/cloud-consumer-order8082/target/
+/cloud-provider-payment8081/target/
+*.log
+/*/*.log
+/*.log
