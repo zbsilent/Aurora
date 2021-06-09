@@ -1,0 +1,14 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: zookeeper-consumer
+  cloud:
+    loadbalancer:
+      enabled: true
+      cache:
+        enabled: true
+    zookeeper:
+      connect-string: localhost:2181
+  main:
+    allow-bean-definition-overriding=true:

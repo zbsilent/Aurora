@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: consul-consumer
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+    loadbalancer:
+      enabled: true
+      cache:
+        enabled: true
+server:
+  port: 8004

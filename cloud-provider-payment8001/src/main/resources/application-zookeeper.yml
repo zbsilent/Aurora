@@ -1,0 +1,61 @@
+server:
+  port: 8001
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+  application:
+    name: cloud-provider-payment
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+  datasource:
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 5
+      validation-query: select 1 from dual
+      test-on-borrow: true
+      test-on-return: true
+      pool-prepared-statements: true
+      filter:
+        log4j2:
+          connection-log-enabled: true
+        stat:
+          enabled: true
+          merge-sql: true
+          #          log-slow-sql: true
+          slow-sql-millis: 500
+        wall:
+          enabled: true
+          config:
+            multi-statement-allow: true
+      web-stat-filter:
+        enabled: true
+        exclusions: "*.js,*.css,/druid/*"
+      stat-view-servlet:
+        enabled: true
+        login-username: admin
+        login-password: 123456
+        url-pattern: "/druid/*"
+        allow: ""
+      max-pool-prepared-statement-per-connection-size: 20
+      use-global-data-source-stat: true
+      url: jdbc:mysql://localhost:3306/spring_cloud?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+logging:
+  file:
+    name: ${spring.application.name}.log
+  level:
+    root: warn
+    com.aurora: debug
+  pattern:
+    console: "%d{HH:mm:ss} => [%thread] %-5level %logger{36} - %msg%n"
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
+  type-aliases-package: com.aurora.springcloud.entities

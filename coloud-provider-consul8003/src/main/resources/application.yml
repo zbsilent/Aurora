@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: consul-provider
+#  cloud:
+#    loadbalancer:
+#      cache:
+#        enabled: true
+#      enabled: true
+    consul:
+      host: localhost
+      port: 8500
+server:
+  port: 8003

@@ -1,5 +1,6 @@
-package com.aurora.springcloud.config;
+package com.aurora.spiringcloud.cunsumer.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 import org.springframework.context.annotation.Bean;
@@ -8,11 +9,11 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * @author zbsilent
- * @date 2021年06月09日 5:30 上午
+ * @date 2021年06月09日 6:27 下午
  */
 @Configuration
-@LoadBalancerClient(value = "CLOUD-PAYMENT-SERVICE",configuration = CustomLoadBalancerConfiguration.class)
-public class ApplicationContextConfig {
+@LoadBalancerClient(value = "cloud-provider-payment")
+public class ApplicationContextConfiguration {
 
     @Bean
     @LoadBalanced
