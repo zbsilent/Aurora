@@ -1,0 +1,42 @@
+server:
+  port: 9527
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 开启注册中心创建动态路由功能，利用微服务名进行路由 可以实现负载均衡
+      routes:
+        - id: provider-router
+#          uri: http://localhost:9083
+          uri: lb://PROVIDER-HYSTRIX
+          predicates:
+            - Path=/provider/hystrix/**
+#            - Host=**.somehost.org,**.anotherhost.org # curl http://127.0.0.1:9527/provider/hystrix/dlq/1 -H "Host:spring.somehost.org"
+#            - Header=X-Request-Id, \d+ # curl http://127.0.0.1:9527/provider/hystrix/dlq/1 -H "X-Request-Id:3"
+#            - After: 2021-06-11T00:35:02.163+08:00[Asia/Shanghai] #某个日期以后生效
+#            - Before: 2021-07-11T00:35:02.163+08:00[Asia/Shanghai]
+#            - Method=GET,POST
+        - id: provider-router
+          uri: lb://PROVIDER-SINGLE
+          predicates:
+            - Path=/provider/any
+
+eureka:
+  instance:
+    instance-id: cloud-gateway
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+logging:
+  file:
+    name: ${spring.application.name}.log
+  level:
+    com.aurora: debug

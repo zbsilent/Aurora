@@ -11,15 +11,23 @@
 
     <modules>
         <module>cloud-api-aurora</module>
-        <module>cloud-provider-payment8081</module>
-        <module>cloud-consumer-order8082</module>
+        <module>cloud-服务负载均衡-payment8081</module>
+        <module>cloud-负载均衡消费-order8082</module>
         <module>cloud-eureka-register7001</module>
         <module>cloud-eureka-register7002</module>
-        <module>cloud-provider-payment8083</module>
+        <module>cloud-服务负载均衡节点2-payment8083</module>
         <module>cloud-provider-payment8001</module>
         <module>cloud-consumer-order8002</module>
         <module>coloud-provider-consul8003</module>
         <module>cloud-consumer-consul8004</module>
+        <module>cloud-consumer-openfeign-consul8005</module>
+        <module>cloud-eurek-provider9081</module>
+        <module>cloud-eureka-consumer9082</module>
+        <module>cloud-hystrix-provider9083</module>
+        <module>cloud-hystrix-dashboard7007</module>
+        <module>cloud-geteway-gateway9527</module>
+        <module>summer6666</module>
+        <module>summer-client-3355</module>
     </modules>
 
 
@@ -68,6 +76,11 @@
                 <version>${version.lombok}</version>
             </dependency>
 
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.6.7</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

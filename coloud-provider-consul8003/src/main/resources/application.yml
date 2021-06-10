@@ -1,7 +1,7 @@
 spring:
   application:
     name: consul-provider
-#  cloud:
+  cloud:
 #    loadbalancer:
 #      cache:
 #        enabled: true
@@ -9,5 +9,19 @@ spring:
     consul:
       host: localhost
       port: 8500
+#      config:
+##        watch:
+##          enabled: true
+##          wait-time: 55
+#        enabled: false
+      discovery:
+        health-check-critical-timeout: "2s"
+#        catalog-services-watch-delay: 1000
+#        catalog-services-watch-timeout: 2
+#        health-check-timeout: 10000
+        enabled: true
+        health-check-interval: "1s"
+        health-check-timeout: "2s"
 server:
   port: 8003
+

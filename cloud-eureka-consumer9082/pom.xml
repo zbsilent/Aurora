@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>coloud-provider-consul8003</artifactId>
+    <artifactId>cloud-eureka-consumer9082</artifactId>
+
 
     <dependencies>
         <dependency>
@@ -27,8 +28,11 @@
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
 
-
-
+        <!--openfeign-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
         <!--监控接口-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -39,21 +43,29 @@
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>2.2.2.RELEASE</version>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.6.7</version>
         </dependency>
         <dependency>
             <groupId>com.aurora.spingcloud</groupId>
             <artifactId>cloud-api-aurora</artifactId>
             <version>${project.version}</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-consul-config</artifactId>-->
-<!--        </dependency>-->
     </dependencies>
-
-
 </project>

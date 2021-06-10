@@ -1,0 +1,28 @@
+# 系统配置文件 获取共享配置是最高配置
+server:
+  port: 3355
+
+eureka:
+  instance:
+    instance-id: config-client-one
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+spring:
+
+  application:
+    name: config-client-one
+  cloud:
+    config:
+      label: main
+      name: config
+      profile: dev
+      uri: http://localhost:3344
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: eureka
+
+feign:
+  client:
+    enabled=true:
+    config:
